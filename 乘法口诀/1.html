@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    margin: 20px;
+}
+span{
+    display:inline-block;
+    width: 80px;
+    height: 30px;
+    border:1px solid #eee;
+    text-align:center;
+    line-height:30px;
+}
+        span:not(:first-child){
+            border-left:none;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script>
+var box=document.getElementById("box");
+for (var i = 1; i < 9; i++) {
+    var p=document.createElement('p');
+    var temp='';
+    for (var j = 1; j < 9; j++) {
+        if(j<=i){
+            temp+="<span>"+j+"*"+i+'=' + i * j+'</span>';
+        }
+    }
+    p.innerHTML=temp;
+    box.appendChild(p);
+}
+        </script>
+    </body>
+</html>

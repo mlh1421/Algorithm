@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">北京</a>
+    <a href="#">上海</a>
+    <a href="#">深圳</a>
+    <a href="#">广州</a>
+    <a href="#">天津</a>
+    <a href="#">重庆</a>
+    <a href="#">杭州</a>
+    <ul id="list">
+    </ul>
+    <script>
+        var As = document.getElementsByTagName("a");
+        var list = document.getElementById("list");
+        for (var i = 0; i < As.length; i++) {
+            As[i].btn = false;
+            As[i].onclick = function () {
+                if (this.btn == false) {
+                    var li = document.createElement("li");
+                    li.innerHTML = this.innerHTML;
+                    list.insertBefore(li, list.firstChild);
+                    this.btn = true;
+                } else {
+                    var lis = list.getElementsByTagName("li");
+                    console.log(lis);
+                    for (var j = 0; j < lis.length; j++) {
+                        if (this.innerHTML == lis[j].innerHTML) {
+                            list.removeChild(lis[j]);
+                            var li = document.createElement("li");
+                            li.innerHTML = this.innerHTML;
+                            list.insertBefore(li, list.firstChild);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
